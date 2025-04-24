@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="he">
+<head>
+    <meta charset="utf-8">
+    <title>צריך לקנות</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+</head>
+<body>
+    <h1>🛒 צריך לקנות</h1>
+    <form method="post">
+        <input type="text" name="item" placeholder="מה לקנות?" required>
+        <input type="number" name="quantity" min="1" value="1">
+        <button type="submit">הוסף</button>
+    </form>
+    <ul>
+        {% for item, quantity in items %}
+        <li>
+            <div>
+                {% set icon = search_icon(item) %}
+                {% if icon %}
+                    <iconify-icon icon="{{ icon }}" class="icon"></iconify-icon>
+                {% endif %}
+                {{ item }} ({{ quantity }})
+            </div>
+            <a href="{{ url_for('remove_item', item=item) }}">
+                <iconify-icon icon="mdi:trash-can-outline" style="color: #b71c1c;"></iconify-icon>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
