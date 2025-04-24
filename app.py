@@ -13,19 +13,24 @@ c.execute('''CREATE TABLE IF NOT EXISTS shopping_list (item TEXT, quantity INTEG
 
 # פונקציה לחיפוש אייקון (API)
 def search_icon(item_name):
-    # URL לאייקונים דרך Iconify API
-    url = f"https://api.iconify.design/{item_name}.json"
+    try:
+        # שימוש באייקונים מוכרים מסטים קיימים
+        possible_icons = [
+            f"mdi:{item_name}",        # Material Design Icons
+            f"twemoji:{item_name}",    # Emoji
+            f"noto:potato",            # fallback לדוגמה
+        ]
 
-    # שליחת בקשה ל-API
-    response = requests.get(url)
-
-    if response.status_code == 200:
-        data = response.json()
-        # קבלת ה-URL של האייקון הראשון במערך
-        icon_url = data.get('icons', [{}])[0].get('icon', {}).get('src', None)
-        return icon_url
-    else:
+        for icon in possible_icons:
+            url = f"https://api.iconify.design/{icon}.svg"
+            response = requests.get(url)
+            if response.status_code == 200:
+                return url
         return None
+    except Exception as e:
+        print(f"Icon fetch error: {e}")
+        return None
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
