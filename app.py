@@ -70,6 +70,12 @@ def remove_item(item):
     conn.commit()
     return redirect(url_for('index'))
 
+@app.route('/clear', methods=['POST'])
+def clear_list():
+    c.execute('DELETE FROM shopping_list')
+    conn.commit()
+    return redirect(url_for('index'))
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=10000)
 
