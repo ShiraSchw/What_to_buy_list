@@ -1,78 +1,83 @@
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fdfdfd;
-  padding: 20px;
+    background: linear-gradient(to bottom right, #ffecd2, #fcb69f);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
 }
 
 .container {
-  max-width: 600px;
-  margin: auto;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 24px;
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    margin-top: 50px;
+}
+
+h1 {
+    text-align: center;
+    color: #ff7f50;
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
-input[type="text"],
-input[type="number"] {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  font-size: 1em;
+input[type="text"], input[type="number"] {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1em;
 }
 
 button {
-  background-color: #32c682;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+    padding: 10px 20px;
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 button:hover {
-  background-color: #27b174;
+    background-color: #ff6347;
 }
 
-.item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  padding: 10px 0;
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #fff5f0;
+    border: 1px solid #ffd5c2;
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .item-icon {
-  width: 32px;
-  height: 32px;
-  margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
 }
 
-/* 🔽 תוספת חשובה לניידים */
-@media (max-width: 600px) {
-  .container {
-    padding: 16px;
-  }
-
-  .item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  form {
-    flex-direction: column;
-  }
-
-  input,
-  button {
-    width: 100%;
-  }
+.remove-btn {
+    text-decoration: none;
+    color: #ff6347;
+    font-size: 1.2em;
 }
