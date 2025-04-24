@@ -18,7 +18,7 @@ def search_icon(item_name):
         possible_icons = [
             f"mdi:{item_name}",        # Material Design Icons
             f"twemoji:{item_name}",    # Emoji
-            f"noto:potato",            # fallback לדוגמה
+            f"noto:{item_name}",            # fallback לדוגמה
         ]
 
         for icon in possible_icons:
